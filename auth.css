@@ -1,0 +1,59 @@
+/* auth.css - Styling Sign-In Page with Kenyan Theme */
+
+:root {
+  --black: #000;
+  --red: #bb0000;
+  --green: #006600;
+  --white: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, var(--green), var(--black));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-container {
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-box h1 {
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.auth-box p {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.google-btn {
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.google-btn:hover {
+  background-color: #a30000;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #555;
+}

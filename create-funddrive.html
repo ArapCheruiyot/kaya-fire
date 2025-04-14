@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Funddrive</title>
+  <link rel="stylesheet" href="create-funddrive.css" />
+</head>
+<body>
+  <div class="container">
+    <button id="toggleFormBtn" class="toggle-tab">+ Create a New Funddrive</button>
+
+    <div id="fundForm" class="funddrive-form" style="display: none;">
+      <h2>Start a Funddrive</h2>
+
+      <form id="createFundForm">
+        <label for="title">Funddrive Title</label>
+        <input type="text" id="title" placeholder="e.g. School Project in Kisumu" required>
+
+        <label for="description">Brief Description</label>
+        <textarea id="description" placeholder="Tell us more about your funddrive..." rows="4" required></textarea>
+
+        <label for="target">Target Amount (KES)</label>
+        <input type="number" id="target" placeholder="e.g. 50000" required>
+
+        <label for="donation-method">Donation Method</label>
+        <select id="donation-method" required>
+          <option value="paybill">Paybill</option>
+          <option value="till">Till Number</option>
+        </select>
+
+        <label for="donation-detail">Paybill/Till Number</label>
+        <input type="text" id="donation-detail" placeholder="Enter Paybill or Till Number" required>
+
+        <p class="placeholder-note">More donation methods coming soon! 🇰🇪</p>
+
+        <button type="submit" class="submit-btn">Create Funddrive</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggleBtn = document.getElementById("toggleFormBtn");
+      const formContainer = document.getElementById("fundForm");
+      const form = document.getElementById("createFundForm");
+
+      toggleBtn.addEventListener("click", () => {
+        formContainer.style.display = formContainer.style.display === "none" ? "block" : "none";
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const fundData = {
+          title: document.getElementById("title").value,
+          description: document.getElementById("description").value,
+          target: document.getElementById("target").value,
+          method: document.getElementById("donation-method").value,
+          detail: document.getElementById("donation-detail").value,
+          timestamp: new Date().toISOString()
+        };
+
+        // You can also store multiple funddrives if needed (optional enhancement)
+        localStorage.setItem("fundData", JSON.stringify(fundData));
+
+        // Redirect to dashboard
+        window.location.href = "dashboard.html";
+      });
+    });
+  </script>
+</body>
+</html>

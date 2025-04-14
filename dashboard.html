@@ -1,0 +1,51 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funddrive Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header id="user-header">
+    <img id="user-pic" src="" alt="User Photo" />
+    <h2 id="user-name">Welcome, User</h2>
+    <button id="logout-btn">Logout</button>
+  </header>
+
+  <!-- Create Funddrive Button -->
+  <section>
+    <button id="create-btn">+ Create Funddrive</button>
+  </section>
+
+  <!-- Hidden Form -->
+  <section id="form-section" style="display: none;">
+    <form id="funddrive-form">
+      <input type="text" id="title" placeholder="Campaign Title" required />
+      <textarea id="description" placeholder="Description" required></textarea>
+      <input type="number" id="target" placeholder="Target Amount" required />
+      
+      <select id="method" required>
+        <option value="">Choose Method</option>
+        <option value="paybill">Paybill</option>
+        <option value="till">Till Number</option>
+      </select>
+
+      <input type="text" id="number" placeholder="Paybill/Till Number" required />
+      <button type="submit">Save Funddrive</button>
+    </form>
+  </section>
+
+  <!-- Funddrive Cards -->
+  <section id="cards-container">
+    <p>No funddrives yet. Create one!</p>
+  </section>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
